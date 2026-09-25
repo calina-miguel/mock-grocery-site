@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Food Basket</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo" />
+        <span class="brand-name">Food Basket</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="products.html">Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about-hero">
+      <h1>Our story</h1>
+      <p>Food Basket started with a simple idea: make fresh, wholesome food accessible and convenient.</p>
+    </section>
+
+    <section class="mission grid grid-2">
+      <div>
+        <h2>Mission</h2>
+        <p>We partner with local farmers and trusted suppliers to bring seasonal produce and pantry essentials to your table.</p>
+      </div>
+      <div>
+        <h2>Values</h2>
+        <ul>
+          <li>Quality and transparency</li>
+          <li>Community and sustainability</li>
+          <li>Convenience without compromise</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="team">
+      <h2>Meet the team</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <img src="assets/team-1.jpg" alt="Founder" />
+          <h3>Jane Doe</h3>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="card">
+          <img src="assets/team-2.jpg" alt="Operations" />
+          <h3>Sam Lee</h3>
+          <p>Operations</p>
+        </div>
+        <div class="card">
+          <img src="assets/team-3.jpg" alt="Community" />
+          <h3>Rosa Kim</h3>
+          <p>Community & Sourcing</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo small" />
+        <p>Quality groceries, thoughtfully sourced.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="products.html">Products</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@foodbasket.example</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year2"></span> Food Basket — Mock site</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year2').textContent = new Date().getFullYear();</script>
+</body>
+</html>

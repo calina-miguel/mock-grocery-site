@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recipes — Food Basket</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo" />
+        <span class="brand-name">Food Basket</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="recipes.html" class="active">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="recipes-hero">
+      <h1>Recipes & Tips</h1>
+      <p>Seasonal recipes using ingredients from our shop.</p>
+    </section>
+
+    <section class="grid grid-3" id="recipeList">
+      <article class="card">
+        <img src="assets/recipe-1.jpg" alt="Hearty vegetable stew" />
+        <h3>Hearty Vegetable Stew</h3>
+        <p>Comforting stew with root vegetables and herbs.</p>
+        <a class="btn" href="#">Read recipe</a>
+      </article>
+      <article class="card">
+        <img src="assets/recipe-2.jpg" alt="Simple grain bowl" />
+        <h3>Simple Grain Bowl</h3>
+        <p>Quick, nutritious bowl with seasonal greens.</p>
+        <a class="btn" href="#">Read recipe</a>
+      </article>
+      <article class="card">
+        <img src="assets/recipe-3.jpg" alt="Fresh salad" />
+        <h3>Fresh Market Salad</h3>
+        <p>Bright salad with citrus vinaigrette.</p>
+        <a class="btn" href="#">Read recipe</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo small" />
+        <p>Quality groceries, thoughtfully sourced.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="products.html">Products</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@foodbasket.example</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year4"></span> Food Basket — Mock site</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year4').textContent = new Date().getFullYear();</script>
+</body>
+</html>

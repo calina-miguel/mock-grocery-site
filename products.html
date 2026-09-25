@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — Food Basket</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo" />
+        <span class="brand-name">Food Basket</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="cart-btn" id="cartBtn2">Cart (<span id="cartCount2">0</span>)</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="products-hero">
+      <h1>Products</h1>
+      <p>Browse our selection. Click a product for quick view and add to cart.</p>
+    </section>
+
+    <section id="productGrid" class="grid grid-4">
+      <!-- JS injects product cards -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo small" />
+        <p>Quality groceries, thoughtfully sourced.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@foodbasket.example</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year3"></span> Food Basket — Mock site</small>
+    </div>
+  </footer>
+
+  <!-- Modal and cart drawer reused from index; main.js handles both -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your cart</h3>
+      <button id="closeCart2" aria-label="Close cart">Close</button>
+    </div>
+    <div id="cartItems2" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: $<span id="cartTotal2">0.00</span></div>
+      <button id="checkoutBtn2" class="btn primary">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content" role="document">
+      <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

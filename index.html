@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Basket — Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo" />
+        <span class="brand-name">Food Basket</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="cart-btn" id="cartBtn" aria-haspopup="dialog" aria-controls="cartDrawer">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Fresh groceries delivered with care</h1>
+          <p>Local produce, pantry staples, and curated food boxes — delivered to your door.</p>
+          <a class="btn primary" href="products.html">Shop Now</a>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero.jpg" alt="Assorted fresh groceries" />
+        </div>
+      </div>
+    </section>
+
+    <section class="categories container">
+      <h2>Shop by category</h2>
+      <div class="grid grid-3">
+        <a class="card" href="products.html#produce">
+          <img src="assets/cat-1.jpg" alt="Produce" />
+          <h3>Produce</h3>
+        </a>
+        <a class="card" href="products.html#pantry">
+          <img src="assets/cat-2.jpg" alt="Pantry" />
+          <h3>Pantry</h3>
+        </a>
+        <a class="card" href="products.html#boxes">
+          <img src="assets/cat-3.jpg" alt="Food Boxes" />
+          <h3>Food Boxes</h3>
+        </a>
+      </div>
+    </section>
+
+    <section class="featured container">
+      <h2>Featured products</h2>
+      <div class="grid grid-4" id="featuredList">
+        <!-- JS injects featured product cards -->
+      </div>
+    </section>
+
+    <section class="newsletter container">
+      <div class="newsletter-inner">
+        <h2>Join our newsletter</h2>
+        <p>Get recipes, deals, and seasonal picks straight to your inbox.</p>
+        <form id="newsletterForm" class="inline-form" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Your email" required />
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" class="form-msg" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo small" />
+        <p>Quality groceries, thoughtfully sourced.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="products.html">Products</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@foodbasket.example</p>
+        <p>+1 (555) 123-4567</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year"></span> Food Basket — Mock site</small>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your cart</h3>
+      <button id="closeCart" aria-label="Close cart">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+      <button id="checkoutBtn" class="btn primary">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content" role="document">
+      <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

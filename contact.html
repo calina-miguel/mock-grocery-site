@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Food Basket</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo" />
+        <span class="brand-name">Food Basket</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="contact-hero">
+      <h1>Contact us</h1>
+      <p>Questions, wholesale inquiries, or feedback — we'd love to hear from you.</p>
+    </section>
+
+    <section class="contact-grid grid grid-2">
+      <div>
+        <h2>Send a message</h2>
+        <form id="contactForm" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <button class="btn primary" type="submit">Send message</button>
+          <p id="contactMsg" class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+      <div>
+        <h2>Visit us</h2>
+        <p><strong>Address</strong><br/>123 Market Lane<br/>City, State</p>
+        <p><strong>Hours</strong><br/>Mon–Fri 9am–6pm<br/>Sat 9am–2pm</p>
+        <h3>Follow</h3>
+        <p>Instagram · Facebook · Twitter</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Food Basket logo" class="logo small" />
+        <p>Quality groceries, thoughtfully sourced.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="products.html">Products</a>
+          <a href="recipes.html">Recipes</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@foodbasket.example</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year5"></span> Food Basket — Mock site</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
