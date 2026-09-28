@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Recipes — Ayo Market</title>
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
 </head>
 <body>
   <header class="site-header">
@@ -31,47 +31,48 @@
       <p>Short, practical recipe notes for turning pantry items and fresh produce into weeknight comfort.</p>
     </section>
 
-    <section class="grid grid-3" id="recipeList">
-      <article class="card">
-        <img src="assets/product-4.png" alt="Tomato rice ingredients" />
-        <div class="card-body">
-          <h3>Weeknight Tomato Rice</h3>
-          <p>A one-pot tomato rice with peppers, onions, and pantry seasoning.</p>
-          <a class="btn" href="#tomato-rice">Read recipe</a>
+    <section class="product-tools recipe-tools" aria-label="Recipe filters">
+      <div class="product-tools-bar">
+        <div>
+          <p class="eyebrow">Filter Recipes</p>
+          <h2 id="recipeResultsTitle">All Recipes</h2>
+          <p id="recipeResultCount" class="result-count" aria-live="polite"></p>
         </div>
-      </article>
-      <article class="card">
-        <img src="assets/product-2.png" alt="Garri bowl ingredients" />
-        <div class="card-body">
-          <h3>Garri Breakfast Bowl</h3>
-          <p>Crunchy garri, chilled milk, roasted peanuts, and fruit.</p>
-          <a class="btn" href="#garri-bowl">Read recipe</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="assets/product-1.png" alt="Plantain and greens ingredients" />
-        <div class="card-body">
-          <h3>Plantain & Greens Plate</h3>
-          <p>Sweet fried plantain served with peppery greens and beans.</p>
-          <a class="btn" href="#plantain-greens">Read recipe</a>
-        </div>
-      </article>
+        <button id="recipeFilterToggle" class="btn filter-toggle" type="button" aria-expanded="false" aria-controls="recipeFilterPanel">
+          <span class="filter-icon" aria-hidden="true"></span>
+          Filters
+        </button>
+      </div>
+      <div id="recipeFilterPanel" class="filter-panel" hidden>
+        <fieldset>
+          <legend>Meal Type</legend>
+          <label><input type="checkbox" name="recipeMeal" value="dinner" /> Dinner</label>
+          <label><input type="checkbox" name="recipeMeal" value="breakfast" /> Breakfast</label>
+          <label><input type="checkbox" name="recipeMeal" value="vegetarian" /> Vegetarian</label>
+        </fieldset>
+        <fieldset>
+          <legend>Highlights</legend>
+          <label><input type="checkbox" name="recipeTag" value="quick" /> Quick</label>
+          <label><input type="checkbox" name="recipeTag" value="pantry" /> Pantry</label>
+          <label><input type="checkbox" name="recipeTag" value="fresh" /> Fresh</label>
+          <label><input type="checkbox" name="recipeTag" value="new" /> New Arrival</label>
+        </fieldset>
+        <label class="sort-control" for="sortRecipes">
+          <span>Sort</span>
+          <select id="sortRecipes">
+            <option value="default">Featured First</option>
+            <option value="quick-first">Quick First</option>
+            <option value="a-z">A To Z</option>
+            <option value="z-a">Z To A</option>
+          </select>
+        </label>
+        <button id="clearRecipeFilters" class="text-btn" type="button">Clear Filters</button>
+      </div>
     </section>
 
-    <section class="recipe-notes">
-      <article id="tomato-rice">
-        <h2>Weeknight Tomato Rice</h2>
-        <p>Simmer washed rice with blended tomatoes, onions, pepper mix, stock, and thyme until fluffy. Finish with vegetables and a drizzle of oil.</p>
-      </article>
-      <article id="garri-bowl">
-        <h2>Garri Breakfast Bowl</h2>
-        <p>Soak garri briefly, then top with milk, peanuts, banana, and a little honey. Keep it cold and serve right away.</p>
-      </article>
-      <article id="plantain-greens">
-        <h2>Plantain & Greens Plate</h2>
-        <p>Fry ripe plantains until golden. Serve with sauteed greens, beans, and a spoonful of pepper sauce.</p>
-      </article>
-    </section>
+    <section class="grid grid-3" id="recipeList"></section>
+
+    <section class="recipe-notes" id="recipeNotes"></section>
   </main>
 
   <footer class="site-footer">
@@ -109,9 +110,10 @@
     </div>
   </aside>
 
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
+
 
 
 

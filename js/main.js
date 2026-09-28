@@ -67,6 +67,45 @@ const PRODUCTS = [
   }
 ];
 
+const RECIPES = [
+  {
+    id: 'tomato-rice',
+    title: 'Weeknight Tomato Rice',
+    img: 'assets/product-4.png',
+    alt: 'Tomato rice ingredients',
+    meal: 'dinner',
+    featured: true,
+    time: 35,
+    tags: ['pantry', 'quick', 'new'],
+    summary: 'A one-pot tomato rice with peppers, onions, and pantry seasoning.',
+    note: 'Simmer washed rice with blended tomatoes, onions, pepper mix, stock, and thyme until fluffy. Finish with vegetables and a drizzle of oil.'
+  },
+  {
+    id: 'garri-bowl',
+    title: 'Garri Breakfast Bowl',
+    img: 'assets/product-2.png',
+    alt: 'Garri bowl ingredients',
+    meal: 'breakfast',
+    featured: true,
+    time: 10,
+    tags: ['pantry', 'quick'],
+    summary: 'Crunchy garri, chilled milk, roasted peanuts, and fruit.',
+    note: 'Soak garri briefly, then top with milk, peanuts, banana, and a little honey. Keep it cold and serve right away.'
+  },
+  {
+    id: 'plantain-greens',
+    title: 'Plantain & Greens Plate',
+    img: 'assets/product-1.png',
+    alt: 'Plantain and greens ingredients',
+    meal: 'vegetarian',
+    featured: false,
+    time: 25,
+    tags: ['fresh', 'quick'],
+    summary: 'Sweet fried plantain served with peppery greens and beans.',
+    note: 'Fry ripe plantains until golden. Serve with sauteed greens, beans, and a spoonful of pepper sauce.'
+  }
+];
+
 function loadCart() {
   try {
     const stored = JSON.parse(localStorage.getItem('ayoMarketCart') || '{}');
@@ -146,6 +185,95 @@ function updateProductResultCount(count) {
   const countEl = document.getElementById('productResultCount');
   if (!countEl) return;
   countEl.textContent = `${count} ${count === 1 ? 'Product' : 'Products'} Displayed`;
+}
+
+function recipeCard(recipe) {
+  return `
+    <article class="card recipe-card" id="recipe-card-${recipe.id}">
+      <img src="${recipe.img}" alt="${recipe.alt}" />
+      <div class="card-body">
+        <p class="eyebrow">${recipe.meal}</p>
+        <h3>${recipe.title}</h3>
+        <p>${recipe.summary}</p>
+        <div class="recipe-meta">
+          <span>${recipe.time} Min</span>
+          <a class="btn" href="#${recipe.id}">Read Recipe</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function recipeNote(recipe) {
+  return `
+    <article id="${recipe.id}">
+      <h2>${recipe.title}</h2>
+      <p>${recipe.note}</p>
+    </article>
+  `;
+}
+
+function getFilteredRecipes() {
+  const selectedMeals = [...document.querySelectorAll('input[name="recipeMeal"]:checked')].map(input => input.value);
+  const selectedTags = [...document.querySelectorAll('input[name="recipeTag"]:checked')].map(input => input.value);
+  const sort = document.getElementById('sortRecipes')?.value || 'default';
+
+  let recipes = RECIPES.filter(recipe => {
+    const mealMatch = selectedMeals.length === 0 || selectedMeals.includes(recipe.meal);
+    const tagMatch = selectedTags.length === 0 || selectedTags.every(tag => recipe.tags.includes(tag));
+    return mealMatch && tagMatch;
+  });
+
+  if (sort === 'quick-first') recipes = [...recipes].sort((a, b) => a.time - b.time);
+  if (sort === 'a-z') recipes = [...recipes].sort((a, b) => a.title.localeCompare(b.title));
+  if (sort === 'z-a') recipes = [...recipes].sort((a, b) => b.title.localeCompare(a.title));
+  if (sort === 'default') recipes = [...recipes].sort((a, b) => Number(b.featured) - Number(a.featured));
+
+  return recipes;
+}
+
+function renderRecipes() {
+  const list = document.getElementById('recipeList');
+  const notes = document.getElementById('recipeNotes');
+  if (!list || !notes) return;
+  const recipes = getFilteredRecipes();
+  list.innerHTML = recipes.map(recipeCard).join('') || '<p class="empty-results">No recipes match those filters.</p>';
+  notes.innerHTML = recipes.map(recipeNote).join('');
+  updateRecipeResultCount(recipes.length);
+  setupRevealForElements(list.querySelectorAll('.recipe-card'));
+  setupRevealForElements(notes.querySelectorAll('article'));
+}
+
+function updateRecipeResultCount(count) {
+  const countEl = document.getElementById('recipeResultCount');
+  if (!countEl) return;
+  countEl.textContent = `${count} ${count === 1 ? 'Recipe' : 'Recipes'} Displayed`;
+}
+
+function setupRecipeFilters() {
+  const panel = document.getElementById('recipeFilterPanel');
+  const toggle = document.getElementById('recipeFilterToggle');
+  const clear = document.getElementById('clearRecipeFilters');
+  if (!panel || !toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !panel.hidden;
+    panel.hidden = isOpen;
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  panel.querySelectorAll('input, select').forEach(control => {
+    control.addEventListener('change', renderRecipes);
+  });
+
+  clear?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type="checkbox"]').forEach(input => {
+      input.checked = false;
+    });
+    const sort = document.getElementById('sortRecipes');
+    if (sort) sort.value = 'default';
+    renderRecipes();
+  });
 }
 
 function setupProductFilters() {
@@ -432,6 +560,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFeatured();
   setupProductFilters();
   renderProductsGrid();
+  setupRecipeFilters();
+  renderRecipes();
   handleNewsletter();
   handleContactForm();
   setupProductCardPop();
