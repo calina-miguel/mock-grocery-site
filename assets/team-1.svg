@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Female illustrated founder portrait placeholder</title>
+  <rect width="640" height="420" fill="#fff3d7"/>
+  <circle cx="320" cy="154" r="70" fill="#8b4a2f"/>
+  <path d="M188 382c22-82 72-122 132-122s110 40 132 122" fill="#14624d"/>
+  <path d="M224 176c-16-62 10-126 94-132 78-5 120 54 101 132-22-31-55-48-99-48s-78 17-96 48Z" fill="#1f2a24"/>
+  <path d="M232 168c-12 34-8 72 18 102-40-18-58-54-54-91 4-34 24-60 55-75-14 19-20 40-19 64Z" fill="#1f2a24"/>
+  <path d="M408 168c12 34 8 72-18 102 40-18 58-54 54-91-4-34-24-60-55-75 14 19 20 40 19 64Z" fill="#1f2a24"/>
+  <path d="M274 122c28-22 67-24 101-4-26 10-64 16-116 16 4-4 9-8 15-12Z" fill="#3a2a22"/>
+  <circle cx="292" cy="158" r="8" fill="#1f2a24"/>
+  <circle cx="348" cy="158" r="8" fill="#1f2a24"/>
+  <path d="M286 202c22 18 47 18 68 0" fill="none" stroke="#1f2a24" stroke-width="10" stroke-linecap="round"/>
+  <path d="M255 288c38 28 92 28 130 0" fill="none" stroke="#f2b84b" stroke-width="14" stroke-linecap="round"/>
+</svg>

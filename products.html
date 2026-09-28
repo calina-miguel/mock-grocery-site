@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — Ayo Market</title>
+  <link rel="stylesheet" href="css/styles.css?v=2" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-strip">
+      <div class="container strip-inner">
+        <span>Fresh, frozen, and pantry groceries</span>
+        <a href="contact.html">Ask about pickup</a>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Ayo Market logo" class="logo" />
+        <span class="brand-name">Ayo Market</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="cart-btn" type="button" data-cart-open>Basket (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero products-hero">
+      <p class="eyebrow">Shop the shelves</p>
+      <h1>Groceries for daily meals, celebrations, and comfort cravings.</h1>
+      <p>Use the category shortcuts or open a product for a quick view. This mock shop keeps checkout local to the demo.</p>
+      <div class="category-jump" aria-label="Product categories">
+        <a href="#produce">Produce</a>
+        <a href="#pantry">Pantry</a>
+        <a href="#spices">Spices</a>
+        <a href="#boxes">Bundles</a>
+        <a href="#frozen">Frozen</a>
+        <a href="#drinks">Drinks</a>
+      </div>
+    </section>
+
+    <section class="product-anchors">
+      <span id="produce"></span>
+      <span id="pantry"></span>
+      <span id="spices"></span>
+      <span id="boxes"></span>
+      <span id="frozen"></span>
+      <span id="drinks"></span>
+    </section>
+
+    <section id="productGrid" class="grid grid-3 product-grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="assets/logo.svg" alt="Ayo Market logo" class="logo small" />
+        <p>A welcoming grocery stop for African and Caribbean kitchens.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>hello@ayomarket.example</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year3"></span> Ayo Market</small>
+    </div>
+  </footer>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your basket</h3>
+      <button id="closeCart" class="text-btn" type="button" aria-label="Close basket">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+      <button class="btn primary" type="button" data-checkout>Checkout</button>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content" role="document">
+      <button id="modalClose" class="modal-close" type="button" aria-label="Close">x</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>
+
+
