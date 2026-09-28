@@ -368,6 +368,11 @@ a {
   will-change: transform;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
 .card:hover,
 .feature-block:hover,
 .recipe-notes article:hover {
@@ -412,10 +417,15 @@ a {
   padding: var(--space-3);
 }
 
+.card-body {
+  display: grid;
+  gap: var(--space-1);
+}
+
 .card h3,
 .feature-block h2,
 .recipe-notes h2 {
-  margin: 0 0 .45rem;
+  margin: 0;
 }
 
 .card p,
@@ -427,11 +437,26 @@ a {
 
 .category-card {
   min-height: 100%;
+  gap: var(--space-1);
+  padding-bottom: var(--space-3);
+}
+
+.category-card h3,
+.category-card p {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.category-card h3 {
+  margin-top: var(--space-3);
+}
+
+.category-card p {
+  margin: 0;
 }
 
 .product-card {
-  display: flex;
-  flex-direction: column;
+  min-height: 100%;
 }
 
 .product-image-wrap {
@@ -465,15 +490,18 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: var(--space-1);
 }
 
 .product-card .card-body > p:not(.eyebrow) {
   flex: 1;
+  margin: 0;
 }
 
 .product-meta {
   justify-content: space-between;
-  margin-top: .75rem;
+  margin-top: var(--space-2);
+  padding-top: var(--space-1);
 }
 
 .product-meta strong,
