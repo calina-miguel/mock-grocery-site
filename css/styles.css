@@ -582,6 +582,123 @@ form textarea,
   top: -120px;
 }
 
+.product-tools {
+  padding: 0 0 var(--space-3);
+}
+
+.product-tools-bar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.product-tools-bar h2,
+.product-tools-bar p {
+  margin: 0;
+}
+
+.result-count {
+  color: var(--muted);
+  font-weight: 700;
+  margin-top: .25rem;
+}
+
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.filter-icon {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 14px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.filter-icon::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  border-top: 2px solid currentColor;
+}
+
+.filter-panel {
+  display: grid;
+  grid-template-columns: 1.4fr 1.1fr minmax(180px, .8fr) auto;
+  gap: var(--space-3);
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 26px rgba(74, 32, 61, .08);
+  margin-bottom: var(--space-3);
+  padding: var(--space-3);
+}
+
+.filter-panel[hidden] {
+  display: none;
+}
+
+.filter-panel fieldset {
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem .8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-panel legend,
+.sort-control span {
+  color: var(--primary-dark);
+  font-weight: 800;
+  margin-bottom: .45rem;
+  width: 100%;
+}
+
+.filter-panel label {
+  align-items: center;
+  display: inline-flex;
+  gap: .35rem;
+  font-weight: 700;
+}
+
+.filter-panel input[type="checkbox"] {
+  accent-color: var(--primary);
+}
+
+.sort-control {
+  display: grid;
+  gap: .45rem;
+}
+
+.sort-control select {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font: inherit;
+  padding: .65rem .75rem;
+}
+
+.empty-results {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-weight: 800;
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--space-4);
+  text-align: center;
+}
+
 .product-grid {
   padding-bottom: var(--space-4);
 }
@@ -866,6 +983,15 @@ form label {
   .service-grid,
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-tools-bar,
+  .filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .product-tools-bar {
+    align-items: stretch;
   }
 
   .grid-3,

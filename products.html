@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Products — Ayo Market</title>
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
 </head>
 <body>
   <header class="site-header">
@@ -54,6 +54,47 @@
       <span id="drinks"></span>
     </section>
 
+    <section class="product-tools" aria-label="Product filters">
+      <div class="product-tools-bar">
+        <div>
+          <p class="eyebrow">Filter Results</p>
+          <h2 id="productResultsTitle">All Products</h2>
+          <p id="productResultCount" class="result-count" aria-live="polite"></p>
+        </div>
+        <button id="filterToggle" class="btn filter-toggle" type="button" aria-expanded="false" aria-controls="filterPanel">
+          <span class="filter-icon" aria-hidden="true"></span>
+          Filters
+        </button>
+      </div>
+      <div id="filterPanel" class="filter-panel" hidden>
+        <fieldset>
+          <legend>Type</legend>
+          <label><input type="checkbox" name="category" value="produce" /> Produce</label>
+          <label><input type="checkbox" name="category" value="pantry" /> Pantry</label>
+          <label><input type="checkbox" name="category" value="spices" /> Spices</label>
+          <label><input type="checkbox" name="category" value="boxes" /> Bundles</label>
+          <label><input type="checkbox" name="category" value="frozen" /> Frozen</label>
+          <label><input type="checkbox" name="category" value="drinks" /> Drinks</label>
+        </fieldset>
+        <fieldset>
+          <legend>Highlights</legend>
+          <label><input type="checkbox" name="tag" value="fresh" /> Fresh</label>
+          <label><input type="checkbox" name="tag" value="new" /> New Arrival</label>
+          <label><input type="checkbox" name="tag" value="bundle" /> Bundle</label>
+          <label><input type="checkbox" name="tag" value="featured" /> Featured</label>
+        </fieldset>
+        <label class="sort-control" for="sortProducts">
+          <span>Price</span>
+          <select id="sortProducts">
+            <option value="default">Featured First</option>
+            <option value="low-high">Low To High</option>
+            <option value="high-low">High To Low</option>
+          </select>
+        </label>
+        <button id="clearFilters" class="text-btn" type="button">Clear Filters</button>
+      </div>
+    </section>
+
     <section id="productGrid" class="grid grid-3 product-grid"></section>
   </main>
 
@@ -100,9 +141,10 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
+
 
 
 

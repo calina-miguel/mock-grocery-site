@@ -7,6 +7,7 @@ const PRODUCTS = [
     category: 'produce',
     featured: true,
     badge: 'Fresh',
+    tags: ['fresh', 'featured', 'new'],
     desc: 'Sweet yellow plantains selected for frying, roasting, or adding to weekend stews.'
   },
   {
@@ -17,6 +18,7 @@ const PRODUCTS = [
     category: 'pantry',
     featured: true,
     badge: 'Pantry',
+    tags: ['featured'],
     desc: 'Crisp cassava granules for eba, soaking, and quick family meals.'
   },
   {
@@ -27,6 +29,7 @@ const PRODUCTS = [
     category: 'spices',
     featured: true,
     badge: 'Spicy',
+    tags: ['featured', 'new'],
     desc: 'A bright pepper blend with heat, fruitiness, and depth for soups and marinades.'
   },
   {
@@ -37,6 +40,7 @@ const PRODUCTS = [
     category: 'boxes',
     featured: true,
     badge: 'Bundle',
+    tags: ['bundle', 'featured'],
     desc: 'Rice, seasoning, tomato base, and aromatics bundled for an easy one-pot classic.'
   },
   {
@@ -47,6 +51,7 @@ const PRODUCTS = [
     category: 'frozen',
     featured: false,
     badge: 'Frozen',
+    tags: ['new'],
     desc: 'Clean-cut goat meat pieces packed for pepper soup, curry, and slow braises.'
   },
   {
@@ -57,6 +62,7 @@ const PRODUCTS = [
     category: 'drinks',
     featured: false,
     badge: 'Drinks',
+    tags: ['new'],
     desc: 'Dried hibiscus petals for brewing ruby-red zobo with ginger, citrus, and spice.'
   }
 ];
@@ -111,7 +117,61 @@ function renderFeatured() {
 function renderProductsGrid() {
   const grid = document.getElementById('productGrid');
   if (!grid) return;
-  grid.innerHTML = PRODUCTS.map(productCard).join('');
+  const products = getFilteredProducts();
+  grid.innerHTML = products.map(productCard).join('') || '<p class="empty-results">No products match those filters.</p>';
+  updateProductResultCount(products.length);
+  setupProductCardPop();
+  setupRevealForElements(grid.querySelectorAll('.product-card'));
+}
+
+function getFilteredProducts() {
+  const selectedCategories = [...document.querySelectorAll('input[name="category"]:checked')].map(input => input.value);
+  const selectedTags = [...document.querySelectorAll('input[name="tag"]:checked')].map(input => input.value);
+  const sort = document.getElementById('sortProducts')?.value || 'default';
+
+  let products = PRODUCTS.filter(product => {
+    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+    const tagMatch = selectedTags.length === 0 || selectedTags.every(tag => product.tags?.includes(tag));
+    return categoryMatch && tagMatch;
+  });
+
+  if (sort === 'low-high') products = [...products].sort((a, b) => a.price - b.price);
+  if (sort === 'high-low') products = [...products].sort((a, b) => b.price - a.price);
+  if (sort === 'default') products = [...products].sort((a, b) => Number(b.featured) - Number(a.featured));
+
+  return products;
+}
+
+function updateProductResultCount(count) {
+  const countEl = document.getElementById('productResultCount');
+  if (!countEl) return;
+  countEl.textContent = `${count} ${count === 1 ? 'Product' : 'Products'} Displayed`;
+}
+
+function setupProductFilters() {
+  const panel = document.getElementById('filterPanel');
+  const toggle = document.getElementById('filterToggle');
+  const clear = document.getElementById('clearFilters');
+  if (!panel || !toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !panel.hidden;
+    panel.hidden = isOpen;
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  panel.querySelectorAll('input, select').forEach(control => {
+    control.addEventListener('change', renderProductsGrid);
+  });
+
+  clear?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type="checkbox"]').forEach(input => {
+      input.checked = false;
+    });
+    const sort = document.getElementById('sortProducts');
+    if (sort) sort.value = 'default';
+    renderProductsGrid();
+  });
 }
 
 function openProductModal(id) {
@@ -268,6 +328,8 @@ function setupProductCardPop() {
   if (supportsHover) return;
 
   document.querySelectorAll('.product-card').forEach(card => {
+    if (card.dataset.popReady === 'true') return;
+    card.dataset.popReady = 'true';
     let popTimer;
 
     card.addEventListener('pointerup', event => {
@@ -283,6 +345,13 @@ function setupProductCardPop() {
       window.clearTimeout(popTimer);
       card.classList.remove('is-popped');
     });
+  });
+}
+
+function setupRevealForElements(elements) {
+  elements.forEach((el, index) => {
+    el.classList.add('reveal', 'is-visible');
+    el.style.setProperty('--stagger-index', index % 4);
   });
 }
 
@@ -361,6 +430,7 @@ document.addEventListener('click', e => {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderFeatured();
+  setupProductFilters();
   renderProductsGrid();
   handleNewsletter();
   handleContactForm();
