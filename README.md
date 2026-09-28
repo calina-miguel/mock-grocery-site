@@ -1,5 +1,5 @@
 # Ayo Market
 
-A responsive African and Caribbean grocery storefront with product browsing, recipe ideas, contact details, and a lightweight demo basket.
+A responsive grocery demo for African and Caribbean home cooking, with browsable market shelves, recipe inspiration, contact details, and a lightweight basket experience.
 
 Live site: https://calina-miguel.github.io/mock-grocery-site/
