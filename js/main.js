@@ -61,7 +61,21 @@ const PRODUCTS = [
   }
 ];
 
-let cart = {};
+function loadCart() {
+  try {
+    const stored = JSON.parse(localStorage.getItem('ayoMarketCart') || '{}');
+    if (!stored || typeof stored !== 'object' || Array.isArray(stored)) return {};
+    return stored;
+  } catch {
+    return {};
+  }
+}
+
+function saveCart() {
+  localStorage.setItem('ayoMarketCart', JSON.stringify(cart));
+}
+
+let cart = loadCart();
 
 function formatPrice(n) {
   return n.toFixed(2);
@@ -140,18 +154,23 @@ function addToCartFromModal(id) {
 
 function addToCart(id, qty = 1) {
   cart[id] = (cart[id] || 0) + qty;
+  saveCart();
   updateCartUI();
   openCartDrawer();
 }
 
 function removeFromCart(id) {
   delete cart[id];
+  saveCart();
   updateCartUI();
 }
 
 function changeQty(id, qty) {
   if (qty <= 0 || Number.isNaN(qty)) removeFromCart(id);
-  else cart[id] = qty;
+  else {
+    cart[id] = qty;
+    saveCart();
+  }
   updateCartUI();
 }
 
