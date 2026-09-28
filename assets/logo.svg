@@ -3,19 +3,20 @@
   <desc id="desc">A woven basket with a leaf and sun mark.</desc>
   <defs>
     <linearGradient id="basket" x1="30" y1="56" x2="130" y2="142" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F2B84B"/>
+      <stop stop-color="#e6ad3f"/>
       <stop offset="1" stop-color="#B8582A"/>
     </linearGradient>
     <linearGradient id="leaf" x1="72" y1="18" x2="118" y2="78" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4FA365"/>
-      <stop offset="1" stop-color="#14624D"/>
+      <stop stop-color="#B96A5B"/>
+      <stop offset="1" stop-color="#6F2F55"/>
     </linearGradient>
   </defs>
   <circle cx="80" cy="80" r="74" fill="#FFF8EA"/>
-  <circle cx="80" cy="80" r="68" fill="none" stroke="#1E6655" stroke-width="8"/>
-  <path d="M50 76c0-24 16-42 30-42s30 18 30 42" fill="none" stroke="#1E6655" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="80" cy="80" r="68" fill="none" stroke="#6F2F55" stroke-width="8"/>
+  <path d="M50 76c0-24 16-42 30-42s30 18 30 42" fill="none" stroke="#6F2F55" stroke-width="9" stroke-linecap="round"/>
   <path d="M36 70h88l-9 57a16 16 0 0 1-16 13H61a16 16 0 0 1-16-13L36 70Z" fill="url(#basket)"/>
   <path d="M45 91h70M49 112h62" stroke="#FFF1C7" stroke-width="7" stroke-linecap="round" opacity=".72"/>
   <path d="M64 70c9-24 29-37 57-38-1 28-17 48-47 55 13-14 25-28 32-43-15 9-28 18-42 26Z" fill="url(#leaf)"/>
-  <circle cx="44" cy="42" r="12" fill="#E65F2E"/>
+  <circle cx="44" cy="42" r="12" fill="#c7663d"/>
 </svg>
+

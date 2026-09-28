@@ -1,14 +1,14 @@
 :root {
-  --ink: #1f2a24;
-  --muted: #66716b;
-  --bg: #fffaf1;
+  --ink: #2a2028;
+  --muted: #746873;
+  --bg: #fff8ed;
   --surface: #ffffff;
-  --line: #e8ddc8;
-  --primary: #14624d;
-  --primary-dark: #0d4638;
-  --accent: #e65f2e;
-  --gold: #f2b84b;
-  --sage: #dbe8d4;
+  --line: #eadcc9;
+  --primary: #6f2f55;
+  --primary-dark: #4b203d;
+  --accent: #c7663d;
+  --gold: #e6ad3f;
+  --sage: #f2e3c6;
   --radius: 8px;
   --max-width: 1180px;
   --space-1: clamp(.45rem, .8vw, .65rem);
@@ -64,7 +64,7 @@ a {
 
 .site-header.is-scrolled {
   background: rgba(255, 250, 241, .985);
-  box-shadow: 0 12px 30px rgba(31, 42, 36, .08);
+  box-shadow: 0 12px 30px rgba(74, 32, 61, .1);
 }
 
 .top-strip {
@@ -184,7 +184,7 @@ a {
 .btn:hover,
 .cart-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(31, 42, 36, .1);
+  box-shadow: 0 10px 22px rgba(74, 32, 61, .12);
 }
 
 .btn.primary:hover {
@@ -255,13 +255,13 @@ a {
   height: 430px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 20px 45px rgba(31, 42, 36, .16);
+  box-shadow: 0 20px 45px rgba(74, 32, 61, .18);
   transform: scale(1.015);
   transition: transform .7s var(--ease-out), box-shadow .45s var(--ease-out);
 }
 
 .hero-panel:hover img {
-  box-shadow: 0 24px 54px rgba(31, 42, 36, .2);
+  box-shadow: 0 24px 54px rgba(74, 32, 61, .24);
   transform: scale(1.04);
 }
 
@@ -278,7 +278,7 @@ a {
   padding: var(--space-3);
   transform: translate3d(0, calc(var(--parallax-y, 0) * -.35), 0);
   transition: transform .08s linear, box-shadow .35s var(--ease-out);
-  box-shadow: 0 10px 24px rgba(31, 42, 36, .08);
+  box-shadow: 0 10px 24px rgba(74, 32, 61, .1);
 }
 
 .delivery-card span {
@@ -289,7 +289,7 @@ a {
   background: var(--primary-dark);
   color: #fff;
   margin: var(--space-3) 0 var(--space-5);
-  background-image: linear-gradient(110deg, rgba(242, 184, 75, .16), transparent 38%, rgba(230, 95, 46, .15));
+  background-image: linear-gradient(110deg, rgba(230, 173, 63, .18), transparent 38%, rgba(199, 102, 61, .17));
   background-position: calc(50% + var(--parallax-x, 0px)) center;
   background-size: 140% 100%;
 }
@@ -308,7 +308,7 @@ a {
 }
 
 .service-grid span {
-  color: #d7e7df;
+  color: #f1dfd0;
   font-size: .9rem;
 }
 
@@ -362,7 +362,7 @@ a {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 8px 24px rgba(31, 42, 36, .06);
+  box-shadow: 0 8px 24px rgba(74, 32, 61, .07);
   transform: translateZ(0);
   transition: transform .34s var(--ease-spring), box-shadow .34s var(--ease-out), border-color .34s var(--ease-out);
   will-change: transform;
@@ -376,15 +376,15 @@ a {
 .card:hover,
 .feature-block:hover,
 .recipe-notes article:hover {
-  border-color: rgba(20, 98, 77, .28);
-  box-shadow: 0 18px 34px rgba(31, 42, 36, .12);
+  border-color: rgba(111, 47, 85, .28);
+  box-shadow: 0 18px 34px rgba(74, 32, 61, .14);
   transform: translateY(-5px);
 }
 
 .product-card:focus-within,
 .product-card.is-popped {
   border-color: rgba(230, 95, 46, .32);
-  box-shadow: 0 22px 44px rgba(31, 42, 36, .16);
+  box-shadow: 0 22px 44px rgba(74, 32, 61, .18);
   transform: translateY(-8px) scale(1.018);
   z-index: 2;
 }
@@ -392,7 +392,7 @@ a {
 @media (hover: hover) and (pointer: fine) {
   .product-card:hover {
     border-color: rgba(230, 95, 46, .32);
-    box-shadow: 0 22px 44px rgba(31, 42, 36, .16);
+    box-shadow: 0 22px 44px rgba(74, 32, 61, .18);
     transform: translateY(-8px) scale(1.018);
     z-index: 2;
   }
@@ -621,7 +621,7 @@ form label {
 
 .footer-inner p,
 .copyright {
-  color: #d7e7df;
+  color: #f1dfd0;
 }
 
 .footer-nav a {
@@ -638,7 +638,7 @@ form label {
   height: 100%;
   width: min(380px, 92vw);
   background: var(--surface);
-  box-shadow: -16px 0 42px rgba(31, 42, 36, .18);
+  box-shadow: -16px 0 42px rgba(74, 32, 61, .2);
   transform: translateX(110%);
   transition: transform .34s var(--ease-out);
   padding: var(--space-3);
@@ -727,7 +727,7 @@ form label {
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(31, 42, 36, .52);
+  background: rgba(42, 32, 40, .56);
   padding: var(--space-3);
   z-index: 80;
   opacity: 0;
